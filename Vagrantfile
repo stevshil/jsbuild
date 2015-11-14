@@ -30,7 +30,7 @@ Vagrant.configure(2) do | config |
     ap1.vm.host_name = "appnode1"
     config.vm.provision "chef_solo" do | chef |
       chef.roles_path = "roles"
-      chef.add_role("appnode")
+      chef.add_role("app_node")
       chef.node_name = "appnode1"
     end
   end
@@ -42,10 +42,10 @@ Vagrant.configure(2) do | config |
       vb.name = "AppNode2"
     end
     ap2.vm.network "private_network", ip: "192.168.100.30", virtualbox__intnet: "NatNetwork"
-    ap2.vm.host_name = "appnode1"
+    ap2.vm.host_name = "appnode2"
     config.vm.provision "chef_solo" do | chef |
       chef.roles_path = "roles"
-      chef.add_role("appnode")
+      chef.add_role("app_node")
       chef.node_name = "appnode2"
     end
   end

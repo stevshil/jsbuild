@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# description: Starts the Sainsbury Go script
+# chkconfig: 345 99 99
+
+case $1 in
+	start)
+		nohup /usr/lib/golang/bin/jscode &
+		;;
+	stop)
+		kill -9 $(ps -ef | grep jscode | grep -v grep) >/dev/null 2>&1
+		;;
+	restart)
+		kill -9 $(ps -ef | grep jscode | grep -v grep) >/dev/null 2>&1
+		nohup /usr/lib/golang/bin/jscode &
+		;;
+	status)
+		if ps -ef | grep jscode | grep -v grep >/dev/null 2>&1
+		then
+			echo "JS Go script is running"
+		else
+			echo "JS Go script is NOT running"
+			exit 1
+		fi
+		;;
+esac
+exit 0
