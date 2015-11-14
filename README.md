@@ -36,3 +36,9 @@ The provisioning script will build all 3 servers if they are not running, and wi
 The script allows for all servers, the web node or the 2 app nodes to be built or provisioned, as well as a full environment decomission.
 
 A URL test is made to ensure that hitting the web node will produce a result from each of the backend nodes at the end of the install and provision of all nodes, or can be run manually by supplying the word 'test' as an argument to the script.
+
+The script should be run any time an update is pushed to git, such as a change to the backend Go script application, or any changes to the configuration.  The jscode lives in the appcode cookbook in the files directory for ease of deployment, but in a full server environment would come from a software repository such as artifactory, or url.
+
+
+Other Notes:
+Rather than over engineer, I have demonstrated the use of attributes in the webnode, but have hard coded in the app node ports
