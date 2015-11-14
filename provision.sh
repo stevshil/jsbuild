@@ -85,7 +85,7 @@ elif [[ "$1" == "deco" ]]
 then
 	for host in ap1 ap2 lb
 	do
-		(sleep 5 ; echo y) | vagrant destroy $host
+		vagrant destroy $host --force
 	done
 elif [[ "$1" == "test" ]]
 then
