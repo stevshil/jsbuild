@@ -29,3 +29,10 @@ Instructions to create the environment to host the VMs;
 - Download and extra, or git clone this project
 
 Building and provisioning the 3 hosts
+A Linux script called provision.sh has been created to manage the environment and to test that the service is working correctly.  A help feature has been included which will appear if you provide no option or the word 'help'.
+
+The provisioning script will build all 3 servers if they are not running, and will also detect if any of them are running and reprovision if necessary.  Thanks to Chef configuration only required changes will be pushed to the servers.
+
+The script allows for all servers, the web node or the 2 app nodes to be built or provisioned, as well as a full environment decomission.
+
+A URL test is made to ensure that hitting the web node will produce a result from each of the backend nodes at the end of the install and provision of all nodes, or can be run manually by supplying the word 'test' as an argument to the script.
