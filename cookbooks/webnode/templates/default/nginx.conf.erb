@@ -12,7 +12,7 @@ events {
 http {
     upstream backend {
 	<% node['webnode']['appsrv'].each do | srv | %>
-        server <%= srv %>;
+        server <%= srv %>:<%= node['webnode']['appport'] %>;
 	<% end %>
     }
 

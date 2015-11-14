@@ -28,3 +28,8 @@ execute 'firewall' do
 	command 'firewall-cmd --permanent --zone=public --add-service=http;firewall-cmd --zone=public --add-service=http'
 	not_if 'firewall-cmd --list-all | grep http'
 end
+
+execute 'selinuxnetallow' do
+	command 'setsebool httpd_can_network_connect 1 -P'
+	not_if 'getsebool httpd_can_network_connect | grep on'
+end
