@@ -45,3 +45,5 @@ The script should be run any time an update is pushed to git, such as a change t
 
 Other Notes:
 Rather than over engineer, I have demonstrated the use of attributes in the webnode, but have hard coded in the app node ports
+
+The application can be tested using http://localhost:1080 since the Web Node has a port forward set up for the VM to allow pointing a web browser from you hosts 1080 port to the VM port 80
