@@ -19,6 +19,7 @@ lb="Web node"
 ap1="Application Node 1"
 ap2="Application Node 2"
 
+# Test that the application is working according to spec
 function apptest() {
 	nodeA=$(curl http://localhost:1080 2>/dev/null | grep appnode | awk '{print $NF}')
 	nodeB=$(curl http://localhost:1080 2>/dev/null | grep appnode | awk '{print $NF}')
@@ -33,6 +34,7 @@ function apptest() {
 	fi
 }
 
+# Build or provision the host
 function do_host() {
 	host="$1"
 	# Check if host is up
@@ -47,6 +49,7 @@ function do_host() {
 	fi
 }
 
+# Ask what host to build
 function select_host() {
 	select host in EXIT "Web Node" "Application Servers"
 	do
