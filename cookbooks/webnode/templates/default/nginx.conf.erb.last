@@ -1,0 +1,26 @@
+# Chef NGINX LB configuration
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+
+http {
+    upstream backend {
+	server 192.168.100.20;
+	server 192.168.100.30;
+    }
+
+    server {
+        listen 80;
+	server_name _;
+
+        location / {
+            proxy_pass http://backend;
+        }
+    }
+}

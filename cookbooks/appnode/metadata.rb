@@ -1,0 +1,5 @@
+name			'appnode'
+maintainer		'TPS Services Ltd'
+license			'All rights reserved'
+description		'Recipe for building application nodes'
+version			'0.1'

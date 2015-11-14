@@ -1,0 +1,5 @@
+name			'allnodes'
+maintainer		'TPS Services Ltd'
+license			'All rights reserved'
+description		'Recipe for common actions for all nodes'
+version			'0.1'
