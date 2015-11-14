@@ -31,5 +31,5 @@ end
 
 execute 'selinuxnetallow' do
 	command 'setsebool httpd_can_network_connect 1 -P'
-	not_if 'getsebool httpd_can_network_connect | grep on'
+	only_if 'getsebool httpd_can_network_connect | grep off'
 end

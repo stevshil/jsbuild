@@ -22,13 +22,13 @@ ap2="Application Node 2"
 function apptest() {
 	nodeA=$(curl http://localhost:1080 2>/dev/null | grep appnode | awk '{print $NF}')
 	nodeB=$(curl http://localhost:1080 2>/dev/null | grep appnode | awk '{print $NF}')
-	if [[ $nodeA != $nodeB ]]
+	if [[ "$nodeA" != "$nodeB" ]]
 	then
 		echo "Application is running as expected"
 		echo "First call was $nodeA and second call $nodeB"
 	else
-		echo "Application is returning the same backend node"
-		echo "First call was $nodeA and second call $nodeB"
+		echo "ERROR: Application is returning the same backend node"
+		echo "ERROR: First call was $nodeA and second call $nodeB"
 		exit 1
 	fi
 }
@@ -76,6 +76,7 @@ then
 			exit 1
 		fi
 	done
+	sleep 15 # Allow time for application to stabalise
 	apptest
 elif [[ "$1" == "host" ]]
 then
