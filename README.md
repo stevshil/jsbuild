@@ -2,6 +2,8 @@
 
 This project builds 3 Virtual Machines as per the specification to show the understanding of DevOps capabilities.
 
+Best run on a Linux system
+
 Since this project is done off line and aimed at being available on any system I have chosen to use VirtualBox to support the 3 Linux hosts and Vagrant to provide the automation for the build and deployment of the systems.  Vagrant will act as the Chef server in this case since it allows for Chef provisioner, allowing the hosts to be built and provisioned from scratch, and to enable re-provisioning if a change is required while the hosts are live, similar to having a click button in Jenkins for a deployment to production, but instead using a command on the command line.
 
 Requirements:
@@ -9,6 +11,7 @@ Requirements:
 	- For Windows
 		http://download.virtualbox.org/virtualbox/5.0.10/VirtualBox-5.0.10-104061-Win.exe
 		https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4.msi
+		You may also want to install Cygwin so that you can use the BASH environment to run the provision script
 
 	- For Linux
 		- Red Hat systems

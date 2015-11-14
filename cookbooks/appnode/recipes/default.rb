@@ -11,18 +11,18 @@ package 'golang' do
 	action :install
 end
 
+directory '/usr/lib/golang/src/jscode' do
+	owner 'root'
+	group 'root'
+	mode '0755'
+	action :create
+end
+
 cookbook_file '/usr/lib/golang/src/jscode/jscode.go' do
 	source 'jscode.go'
 	owner 'root'
 	group 'root'
 	mode '0644'
-	action :create
-end
-
-directory '/usr/lib/golang/src/jscode' do
-	owner 'root'
-	group 'root'
-	mode '0755'
 	action :create
 end
 
